@@ -127,3 +127,30 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Donors Admin",
+    "site_header": "Donors",
+    "site_brand": "Donors",
+   # "site_logo": "books/img/logo.png",
+    "welcome_sign": "Welcome to the Donors Admin",
+    "copyright": "Cyberjiutsu",
+    # "topmenu_links": [
+    #     {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+    #     {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+    #     {"model": "auth.User"},
+    #     {"app": "books"},
+    # ],
+    # "usermenu_links": [
+    #     {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+    #     {"model": "auth.user"},
+    # ],
+    # "icons": {
+    #     "auth": "fas fa-users-cog",
+    #     "auth.user": "fas fa-user",
+    #     "auth.Group": "fas fa-users",
+    # },
+    # "changeform_format": "horizontal_tabs",
+    # "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+    # "language_chooser": True,
+}
