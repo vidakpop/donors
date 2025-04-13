@@ -9,4 +9,13 @@ class DonorProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-# Create your models here.
+class Project(models.Model):
+    title = models.CharField(max_length=255)
+    summary = models.TextField()
+    description = models.TextField()
+    thumbnail = models.ImageField(upload_to='projects/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+    
