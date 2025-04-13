@@ -27,4 +27,14 @@ class ProjectUpdate(models.Model):
     def __str__(self):
         return f"Update for {self.project.title} on {self.created_at}"
 
+class Donation(models.Model):
+    donor = models.ForeignKey(User,on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.SET_NULL,null=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    payment_reference = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f"{self.donor.username} donated {self.amount} to {self.project.title}"
+
+ 
 
