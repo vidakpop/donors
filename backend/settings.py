@@ -154,3 +154,9 @@ JAZZMIN_SETTINGS = {
     # "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # "language_chooser": True,
 }
+
+JAZZMIN_UI_TWEAKS = {
+    
+    "theme": "spacelab",
+   
+}
