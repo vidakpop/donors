@@ -24,5 +24,9 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = ['id', 'title', 'summary', 'description', 'thumbnail', 'updates']
 
-
+class DonationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Donation
+        fields = '__all__'
+    
         
