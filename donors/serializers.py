@@ -13,3 +13,8 @@ class DonorProfileSerializer(serializers.ModelSerializer):
         model = DonorProfile
         fields = '__all__'
 
+class ProjectUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProjectUpdate
+        fields = '__all__'
+
