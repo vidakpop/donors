@@ -7,3 +7,9 @@ class UserSerializer(serializers.ModelSerializer):
         model= User
         fields= ['id','username','email']
 
+class DonorProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    class Meta:
+        model = DonorProfile
+        fields = '__all__'
+
