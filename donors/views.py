@@ -59,3 +59,18 @@ class AllDonationsView(generics.ListAPIView):
     queryset = Donation.objects.all()
     serializer_class = DonationSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+# Donor >> Create Donation (simulate payment)
+class DonationCreateView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        data=request.data
+        donation = Donation.obkjects.create(
+            donor=request.user,
+            project_id=data['project'],
+            amount=data['amount'],
+            payment_reference=data['payment_reference','TINA123456']
+        )
+        return Response(DonationSerializer(donation).data,status=status.HTTP_201_CREATED)
+    
