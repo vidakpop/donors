@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets,generics,permissions,status
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
@@ -35,3 +36,9 @@ class ProjectUpdateViewSet(viewsets.ModelViewSet):
 
     # def perform_update(self, serializer):
     #     serializer.save()
+
+# Donor >> Profile view and Update
+class DonorProfileView(APIView):
+    permissions_classes = [permissions.IsAuthenticated]
+
+
