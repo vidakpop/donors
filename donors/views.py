@@ -53,6 +53,13 @@ class DonorProfileView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# Donor: Donation History
+class DonorDonationHistoryView(generics.ListAPIView):
+    serializer_class = DonationSerializer
+
+    def get_queryset(self):
+        return Donation.objects.filter(donor=self.request.user)
+
 
 # Donor >> Donation hsistory
 class AllDonationsView(generics.ListAPIView):
