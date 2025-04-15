@@ -41,4 +41,10 @@ class ProjectUpdateViewSet(viewsets.ModelViewSet):
 class DonorProfileView(APIView):
     permissions_classes = [permissions.IsAuthenticated]
 
+    def get(self, request):
+        profile, created = DonorProfile.objects.get_or_create(user=request.user)
+        return Response(DonorProfileSerializer(profile).data)
+    
+    
+
 
