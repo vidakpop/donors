@@ -88,3 +88,9 @@ class MarkNotificationReadView(APIView):
         notif.save()
         return Response({'status': 'Notification marked as read'})
 
+# NGO >> Notifications on donations
+class NewDonationNotificationsView(generics.ListAPIView):
+    serializer_class = NotificationSerializer
+
+    def get_queryset(self):
+        return Notification.objects.filter(message__icontains="donation", is_read=False)
