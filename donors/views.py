@@ -54,3 +54,8 @@ class DonorProfileView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# Donor >> Donation hsistory
+class AllDonationsView(generics.ListAPIView):
+    queryset = Donation.objects.all()
+    serializer_class = DonationSerializer
+    permission_classes = [permissions.IsAuthenticated]
