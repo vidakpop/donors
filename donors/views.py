@@ -19,19 +19,19 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def perform_create(self, serializer):
-        serializer.save()
+    # def perform_create(self, serializer):
+    #     serializer.save()
 
-    def perform_update(self, serializer):
-        serializer.save()
+    # def perform_update(self, serializer):
+    #     serializer.save()
 
 class ProjectUpdateViewSet(viewsets.ModelViewSet):
     queryset = ProjectUpdate.objects.all()
     serializer_class = ProjectUpdateSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def perform_create(self, serializer):
-        serializer.save()
+    # def perform_create(self, serializer):
+    #     serializer.save()
 
-    def perform_update(self, serializer):
-        serializer.save()
+    # def perform_update(self, serializer):
+    #     serializer.save()
