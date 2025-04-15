@@ -81,3 +81,10 @@ class DonorNotificationsView(generics.ListAPIView):
     def get_queryset(self):
         return Notification.objects.filter(user=self.request.user)
 
+class MarkNotificationReadView(APIView):
+    def post(self, request, pk):
+        notif= Notification.objects.get(pk=pk, user=request.user)
+        notif.is_read=True
+        notif.save()
+        return Response({'status': 'Notification marked as read'})
+
