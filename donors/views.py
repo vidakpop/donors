@@ -74,3 +74,10 @@ class DonationCreateView(APIView):
         )
         return Response(DonationSerializer(donation).data,status=status.HTTP_201_CREATED)
     
+# Donor >> Notifications
+class DonorNotificationsView(generics.ListAPIView):
+    serializer_class = NotificationSerializer
+
+    def get_queryset(self):
+        return Notification.objects.filter(user=self.request.user)
+
