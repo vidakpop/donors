@@ -43,8 +43,14 @@ class DonorProfileView(APIView):
 
     def get(self, request):
         profile, created = DonorProfile.objects.get_or_create(user=request.user)
-        return Response(DonorProfileSerializer(profile).data)
+        return Response(DonorProfileSerializer(profile,created).data)
     
-    
+    def put(self, request):
+        profile = DonorProfile.objects.get(user=request.user)
+        serializer = DonorProfileSerializer(profile, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
